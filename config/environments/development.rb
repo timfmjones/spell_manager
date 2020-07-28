@@ -1,5 +1,6 @@
 Rails.application.configure do
-  config.hosts << /[a-z0-9]+\-[a -z0-9]+\-3000\.codio\.io/ 
+  
+    config.hosts << /[a-z0-9]+\-[a -z0-9]+\-3000\.codio\.io/ 
     
   # Settings specified here will take precedence over those in config/application.rb.
   # In the development environment your application's code is reloaded on
