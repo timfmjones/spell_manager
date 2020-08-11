@@ -1,0 +1,30 @@
+<p id="notice"><%= flash[:notice] %></p>
+
+<h1>Spell Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.order(:name).each do |books| %>
+      <tr>
+        <td><%= books.name %></td>
+        <td><%= link_to 'View', books_view_path(books) %></td>
+        <td><%= link_to 'Edit', books_edit_path(books) %></td>
+        <td><%= link_to 'Delete', books_delete_path(books) %></td>     
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<p>
+<%= link_to 'New Book', books_create_path %> |
+<%= link_to 'Home', root_path %> 
+</p>
