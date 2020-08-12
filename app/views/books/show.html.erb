@@ -1,0 +1,21 @@
+<p id="notice"><%= flash[:notice] %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @book.name %>
+</p>
+
+<p>
+  <strong>Spells:</strong>
+  <%= @book.name %>
+</p>
+
+<p><%= link_to 'Edit Book', edit_book_path(@book) %></p>
+    
+
+
+<p>
+<%= link_to 'New Book', books_create_path %> |
+<%= link_to 'Show Books', books_path %> |
+<%= link_to 'Home', root_path %> 
+</p>

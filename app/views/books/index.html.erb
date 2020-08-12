@@ -14,8 +14,8 @@
     <% @books.order(:name).each do |books| %>
       <tr>
         <td><%= books.name %></td>
-        <td><%= link_to 'View', books_view_path(books) %></td>
-        <td><%= link_to 'Edit', books_edit_path(books) %></td>
+        <td><%= link_to 'View', book_path(books) %></td>
+        <td><%= link_to 'Edit', edit_book_path(books) %></td>
         <td><%= link_to 'Delete', books_delete_path(books) %></td>     
       </tr>
     <% end %>

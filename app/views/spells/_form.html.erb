@@ -1,8 +1,7 @@
-
-<%= form_with(model: spell, local: true) do |spell| %>
-  <% if spell.errors.any? %>
+<%= form_with(model: spell, local: true) do |form| %>
+ <% if spell.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(book.errors.count, "error") %> prohibited this spell from being saved:</h2>
+      <h2><%= pluralize(spell.errors.count, "error") %> prohibited this spell from being saved:</h2>
 
       <ul>
         <% spell.errors.full_messages.each do |message| %>
@@ -12,10 +11,13 @@
     </div>
   <% end %>
 
+
+
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
+
 
   <div class="field">
     <%= form.label :level %>
@@ -24,7 +26,7 @@
 
   <div class="field">
     <%= form.label :school %>
-    <%= form.text_field :school %>
+    <%= form.select(:school, ['Conjuration', 'Necromancy','Evocation', 'Abjuration', 'Transmutation' ,'Divination' ,'Enchantment', 'Illusion']) %>
   </div>
 
   <div class="field">
@@ -41,3 +43,7 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+
+
+

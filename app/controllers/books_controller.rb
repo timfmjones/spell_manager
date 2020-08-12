@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
-  def view
+  def show
       @book = Book.find(params[:id])
   end
+    
 
   def create
   end
@@ -10,12 +11,23 @@ class BooksController < ApplicationController
   end
 
   def edit
+      @book = Book.find(params[:id])
   end
 
   def index
       @books = Book.all
       #@books = Book.order_by params[:order_by]
       #which one ??
+  end
+    
+  def update
+    @book = Book.find(params[:id])  
+    if @book.update(book_params)
+      flash[:notice] = 'Book was successfully updated.' 
+      redirect_to @book
+    else
+      render :edit
+    end
   end
   
   private

@@ -1,3 +1,4 @@
+
 <p id="notice"><%= flash[:notice] %></p>
 
 <h1>Spells</h1>
@@ -15,8 +16,8 @@
       <tr>
         <td><%= spell.name %></td>
         <td><%= link_to 'View', spell %></td>
-        <td><%= link_to 'Edit', spell_edit_path(spell) %></td>
-        <td><%= link_to 'Delete', spell_delete_path(spell) %></td>     
+        <td><%= link_to 'Edit', edit_spell_path(spell) %></td>
+        <td><%= link_to 'Delete', delete_spell_path(spell) %></td>     
       </tr>
     <% end %>
   </tbody>

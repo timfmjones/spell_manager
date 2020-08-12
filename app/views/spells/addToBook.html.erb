@@ -1,0 +1,40 @@
+<h1>Add Spell to book</h1>
+
+<p>
+  <strong>Book:</strong>
+    <%= radio_button_tag(:age, "child") %>
+    <%= label_tag(:age_child, "I am younger than 21") %>
+    <%= radio_button_tag(:age, "adult") %>
+    <%= label_tag(:age_adult, "I'm over 21") %>
+    
+    
+  <%= Book.to_nested_array_for_select.each do |bk| 
+       radio_button_tag(:book, "'#{bk}'") 
+       label_tag(:book, "'#{bk}'") 
+    end %>
+</p>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.order(:name).each do |books| %>
+      <tr>
+        <td><%= books.name %></td>
+        <td><%= radio_button_tag(@bk, "#{books}") %></td>
+        <p><%= link_to 'Edit Book', edit_book_path(@book) %></p>
+      </tr>
+    <% end %>
+    
+    
+  </tbody>
+</table>
+
+ 

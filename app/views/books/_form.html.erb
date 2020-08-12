@@ -1,0 +1,23 @@
+<%= form_with(model: book, local: true) do |form| %>
+ 
+
+
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  
+
+  <div class="field">
+    <%= form.label :spells %>
+    <%= form.select(:spell, Spell.to_nested_array_for_select,{}, {:multiple => true} ) %>      
+  
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

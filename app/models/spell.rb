@@ -16,6 +16,12 @@ class Spell < ApplicationRecord
     
     validates_length_of :description, maximum: 4096
     
+    def addSpellToBook(bk_id)
+        #db.execute("INSERT INTO book_spell (book_id, spell_id) VALUES (?, ?)", [bk_id, self.id])
+        s_id = self.id
+        ActiveRecord::Base.connection.execute("INSERT INTO book_spell (book_id, spell_id) VALUES (#{bk_id},#{s_id})")
+    end 
+    
     
     def self.to_nested_array_for_select
      nested = []  
