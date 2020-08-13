@@ -1,0 +1,22 @@
+<h1>Add Spell to book</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Spell</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spells.order(:name).each do |spell| %>
+      <tr>
+        <td><%= spell.name %></td>
+        <td><%= radio_button_tag(@bk, "#{spell}") %></td>
+      </tr>
+    <% end %>
+    <% %>
+    
+  </tbody>
+</table>

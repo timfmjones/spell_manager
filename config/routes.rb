@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'spells/update'
  
   get 'spells/addToBook'
-  
+  get 'books/removeSpell'
   get 'books/view'
   get 'books/create'
   get 'books/delete'

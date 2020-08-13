@@ -22,6 +22,11 @@ where book_spell.book_id = #{self.id}")
       return s
   end
     
+    def removeSpell(sp_id)
+        ActiveRecord::Base.connection.execute("delete from book_spell where book_spell.book_id = #{self.id} and book_spell.spell_id = sp_id")
+        
+    end
+    
   
     
     

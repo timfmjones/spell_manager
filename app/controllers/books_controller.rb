@@ -24,6 +24,8 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     ActiveRecord::Base.connection.execute("Delete from books where books.id = #{@book.id}")
+    ActiveRecord::Base.connection.execute("Delete from book_spell where book_spell.book_id = #{@book.id}")
+    
     redirect_to books_url 
   end
 
@@ -35,6 +37,11 @@ class BooksController < ApplicationController
       @books = Book.all
       #@books = Book.order_by params[:order_by]
       #which one ??
+  end
+    
+  def removeSpell
+      @spells = Spell.all
+      #removeSpell(@spell)
   end
     
   def update

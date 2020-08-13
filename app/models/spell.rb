@@ -19,11 +19,10 @@ class Spell < ApplicationRecord
     
     
     
-    def addSpellToBook(bk)
+    def addSpellToBook(bk_id)
         #db.execute("INSERT INTO book_spell (book_id, spell_id) VALUES (?, ?)", [bk_id, self.id])
-        bid = bk.id
-        s_id = self.id
-        ActiveRecord::Base.connection.execute("INSERT INTO book_spell (book_id, spell_id) VALUES (#{bid},#{s_id})")
+        
+        ActiveRecord::Base.connection.execute("INSERT INTO book_spell (book_id, spell_id) VALUES (#{bk_id},#{self.id})")
     end 
     
     

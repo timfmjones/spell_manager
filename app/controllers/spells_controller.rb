@@ -39,6 +39,8 @@ class SpellsController < ApplicationController
   def destroy
     @spell = Spell.find(params[:id])  
     ActiveRecord::Base.connection.execute("Delete from spells where spells.id = #{@spell.id}")
+    ActiveRecord::Base.connection.execute("Delete from book_spell where book_spell.spell_id = #{@spell.id}")
+    
     redirect_to spells_url 
   end
     
@@ -47,6 +49,7 @@ class SpellsController < ApplicationController
     @books = Book.all  
     @spell = Spell.find(params[:id])
     @bk 
+    #addSpellToBook(@bk.id)
       
   end
     

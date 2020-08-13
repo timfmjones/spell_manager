@@ -12,9 +12,10 @@
   </thead>
 
   <tbody>
-    <% @spells.order(:name).each do |spell| %>
+    <% @spells.order(:level).each do |spell| %>
       <tr>
         <td><%= spell.name %></td>
+        <td><%= spell.level %></td>
         <td><%= link_to 'View', spell %></td>
         <td><%= link_to 'Edit', edit_spell_path(spell) %></td>
         <td><%= link_to 'Delete', delete_spell_path(spell) %></td>     
