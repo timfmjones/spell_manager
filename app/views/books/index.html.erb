@@ -16,7 +16,7 @@
         <td><%= books.name %></td>
         <td><%= link_to 'View', book_path(books) %></td>
         <td><%= link_to 'Edit', edit_book_path(books) %></td>
-        <td><%= link_to 'Delete', books_delete_path(books) %></td>     
+        <td><%= link_to 'Delete', delete_book_path(books) %></td>     
       </tr>
     <% end %>
   </tbody>

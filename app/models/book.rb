@@ -14,18 +14,15 @@ class Book < ApplicationRecord
     
   def s_in_b
      
-      s = Spellsbook.where(book_id: self.id).pluck(:spell_id)
+      #s = Spellsbook.where(book_id: self.id).pluck(:spell_id)
+      s = []
+      s = ActiveRecord::Base.connection.execute("select spells.name from (spells
+inner join book_spell on book_spell.spell_id = spells.id)
+where book_spell.book_id = #{self.id}")
       return s
   end
     
-  def self.to_nested_array_for_select
-     nested = []  
-     Book.order(:name).each do |book|
-         
-         nested.push [book.name, book.id]
-     end
-     return nested 
-  end
+  
     
     
 end

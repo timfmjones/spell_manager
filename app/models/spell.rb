@@ -1,6 +1,7 @@
 class Spell < ApplicationRecord
     has_and_belongs_to_many :books
     
+    
     validates_presence_of :name
     validates_length_of :name, maximum: 70
     
@@ -16,10 +17,13 @@ class Spell < ApplicationRecord
     
     validates_length_of :description, maximum: 4096
     
-    def addSpellToBook(bk_id)
+    
+    
+    def addSpellToBook(bk)
         #db.execute("INSERT INTO book_spell (book_id, spell_id) VALUES (?, ?)", [bk_id, self.id])
+        bid = bk.id
         s_id = self.id
-        ActiveRecord::Base.connection.execute("INSERT INTO book_spell (book_id, spell_id) VALUES (#{bk_id},#{s_id})")
+        ActiveRecord::Base.connection.execute("INSERT INTO book_spell (book_id, spell_id) VALUES (#{bid},#{s_id})")
     end 
     
     

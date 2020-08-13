@@ -10,8 +10,8 @@
   
 
   <div class="field">
-    <%= form.label :spells %>
-    <%= form.select(:spell, Spell.to_nested_array_for_select,{}, {:multiple => true} ) %>      
+    <%= form.label "Add spell to book" %>
+    <%= form.select(:spell, Spell.to_nested_array_for_select ) %>      
   
   </div>
 

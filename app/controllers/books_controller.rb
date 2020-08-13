@@ -1,13 +1,30 @@
 class BooksController < ApplicationController
   def show
       @book = Book.find(params[:id])
+      
+      @spells = @book.s_in_b
   end
     
-
+ 
   def create
+      @book = Book.new(book_params)
+
+      if @book.save
+        flash[:notice] = 'Book was successfully created.'  
+        redirect_to @book
+      else
+        render :new
+      end
+  end
+    
+  def new
+      @book = Book.new
   end
 
-  def delete
+  def destroy
+    @book = Book.find(params[:id])
+    ActiveRecord::Base.connection.execute("Delete from books where books.id = #{@book.id}")
+    redirect_to books_url 
   end
 
   def edit

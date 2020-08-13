@@ -38,11 +38,7 @@ class SpellsController < ApplicationController
 
   def destroy
     @spell = Spell.find(params[:id])  
-    if @spell.destroy
-        flash[:notice] = 'Spell was successfully deleted.'
-    else
-        flash[:notice] = 'Unable to delete spell.'
-    end
+    ActiveRecord::Base.connection.execute("Delete from spells where spells.id = #{@spell.id}")
     redirect_to spells_url 
   end
     

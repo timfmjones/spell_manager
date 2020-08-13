@@ -5,14 +5,28 @@
   <%= @book.name %>
 </p>
 
-<p>
-  <strong>Spells:</strong>
-  <%= @book.name %>
-</p>
+
+   
+<table>
+  <thead>
+    <tr>
+      <th>Spells</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book.s_in_b.each do |spell| %>
+      <tr>
+        <td><%= spell %></td>
+        
+        </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <p><%= link_to 'Edit Book', edit_book_path(@book) %></p>
-    
-
+ 
 
 <p>
 <%= link_to 'New Book', books_create_path %> |
